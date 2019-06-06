@@ -10,8 +10,18 @@ Tomado de [esta pagina](https://medium.com/front-end-weekly/create-a-simple-todo
 - Creador de apps con react
 > npm install create-react-app --global
 
-### Setup inicial
+### Primer Setup 
 
 - Crear aplicacion 
 > create-react-app react-todo
-  
+
+
+### Setup de ambiente al bajar
+
+- Bajar las dependencias necesarias
+> npm install
+
+- Levantar la app
+> npm start
+
+Deberia estar disponible en [http://localhost:3000/](http://localhost:3000/)
