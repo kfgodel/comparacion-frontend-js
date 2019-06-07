@@ -15,6 +15,12 @@ Tomado de [esta pagina](https://medium.com/front-end-weekly/create-a-simple-todo
 - Crear aplicacion 
 > create-react-app react-todo
 
+- Instalar material-ui
+> npm install @material-ui/core --save     
+
+- Instalar las fuentes
+> npm install typeface-roboto --save  
+
 
 ### Setup de ambiente al bajar
 
