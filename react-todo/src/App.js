@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import 'typeface-roboto';
 import CssBaseline from '@material-ui/core/CssBaseline'
+import Container from '@material-ui/core/Container'
 import TodoList from './TodoList'
 import TodoItems from './TodoItems'
 import './App.css'
@@ -52,15 +53,17 @@ class App extends Component {
       <React.Fragment>
         <CssBaseline />
 
-        <TodoList
-          addItem={this.addItem}
-          handleInput={this.handleInput}
-          currentItem={this.state.currentItem}
-        />
-        <TodoItems
-          entries={this.state.items}
-          deleteItem={this.deleteItem}
-        />
+        <Container maxWidth="sm">
+          <TodoList
+            addItem={this.addItem}
+            handleInput={this.handleInput}
+            currentItem={this.state.currentItem}
+          />
+          <TodoItems
+            entries={this.state.items}
+            deleteItem={this.deleteItem}
+          />
+        </Container>
 
       </React.Fragment>
     )
