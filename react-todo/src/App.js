@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import 'typeface-roboto';
+import CssBaseline from '@material-ui/core/CssBaseline'
 import TodoList from './TodoList'
 import TodoItems from './TodoItems'
 import './App.css'
@@ -13,8 +14,6 @@ class App extends Component {
       currentItem: {text:'', key:''},
     }
   }
-
-  inputElement = React.createRef()
 
   handleInput = e => {
     const itemText = e.target.value
@@ -50,10 +49,11 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
+      <React.Fragment>
+        <CssBaseline />
+
         <TodoList
           addItem={this.addItem}
-          inputElement={this.inputElement}
           handleInput={this.handleInput}
           currentItem={this.state.currentItem}
         />
@@ -61,7 +61,8 @@ class App extends Component {
           entries={this.state.items}
           deleteItem={this.deleteItem}
         />
-      </div>
+
+      </React.Fragment>
     )
   }
 }

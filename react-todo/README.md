@@ -19,7 +19,11 @@ Tomado de [esta pagina](https://medium.com/front-end-weekly/create-a-simple-todo
 > npm install @material-ui/core --save     
 
 - Instalar las fuentes
-> npm install typeface-roboto --save  
+> npm install typeface-roboto --save
+> npm install @material-ui/icons --save  
+# Alternativa
+# > npm i --save @fortawesome/react-fontawesome
+
 
 
 ### Setup de ambiente al bajar
