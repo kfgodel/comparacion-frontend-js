@@ -1,7 +1,7 @@
 <ul>
 {{#each items as |item|}}
-  <li>
-    {{item.text}}
+  <li {{action onRemoveClicked item}} >
+    {{item.text }}
   </li>
 {{/each}}
 </ul>

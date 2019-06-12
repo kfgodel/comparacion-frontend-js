@@ -12,6 +12,10 @@ export default Component.extend({
       createdItem.set('key', Date.now());
       this.get('todoItems').addObject(createdItem);
       this.set('editedItem', EmberObject.create({text: '', key: ''}));
+    },
+
+    deleteItem(item){
+      this.get('todoItems').removeObject(item);
     }
   }
 
