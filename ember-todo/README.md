@@ -20,7 +20,8 @@ y modificandolo para que sea un todo list como el de react
 > mv ember-todo/.* .  
 > rm -r ember-todo
 
-- Instalar material-ui
+- Instalar material-ui  
+> ember install ember-paper  
   
   
 ### Setup de ambiente al bajar
