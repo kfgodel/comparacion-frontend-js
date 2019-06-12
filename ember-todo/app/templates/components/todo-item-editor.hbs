@@ -1,2 +1,3 @@
 
-{{input value=item.text }} <button {{action onAddClicked}}>Agregar</button>
+{{paper-input class="flex-30" label="Descripcion" placeholder="Describir tarea ..." value=item.text onChange=(action (mut item.text))}}
+{{#paper-button raised=true primary=true onClick=(action onAddClicked)}}Agregar{{/paper-button}}

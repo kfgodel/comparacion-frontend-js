@@ -1,7 +1,10 @@
-<ul>
-{{#each items as |item|}}
-  <li {{action onRemoveClicked item}} >
-    {{item.text }}
-  </li>
-{{/each}}
-</ul>
+{{#paper-list}}
+  {{#each items as |item|}}
+
+    {{#paper-item onClick=(action onRemoveClicked item) }}
+      {{paper-icon "inbox"}}
+      <p>{{item.text }}</p>
+    {{/paper-item}}
+
+  {{/each}}
+{{/paper-list}}
