@@ -2,10 +2,11 @@
   <div id="app">
     <h1>{{title}}:</h1>
 
-    <input type="text" class="nes-input" placeholder="Add todo…" v-on:keyup.enter="addTodo">
+    <input type="text" class="nes-input" placeholder="Add todo…" v-model="currentItem.text">
+    <button type="button" v-on:click="addTodo">Agregar</button>
 
     <ul>
-      <li v-for="todo in todos" v-bind:key="todo.key" class="flex">
+      <li v-for="todo in items" v-bind:key="todo.key" class="flex">
         {{todo.text}}
         <div class="space"></div>
         <button class="nes-btn is-error padding" v-on:click="removeTodo(todo.key)">X</button>
@@ -25,20 +26,18 @@ export default {
   data() {
     return {
       title: 'TODOS',
-      todos: [
-        {text: 'todo 1', done: false, key: Date.now()},
-        {text: 'todo 2', done: false, key: Date.now() + 1}
-      ]
+      currentItem: {text: ''},
+      items: []
     }
   },
   methods: {
-    addTodo(event) {
-      const text = event.target.value
-      this.todos.push({text, done: false, key: Date.now()})
-      event.target.value = ''
+    addTodo() {
+      this.currentItem.key = Date.now()
+      this.items.push(this.currentItem)
+      this.currentItem = {text: ''}
     },
     removeTodo(key) {
-      this.todos = this.todos.filter(todo => todo.key !== key)
+      this.items = this.items.filter(todo => todo.key !== key)
     }
   }
 }
