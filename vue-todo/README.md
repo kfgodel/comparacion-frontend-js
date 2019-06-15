@@ -20,7 +20,7 @@ Tomado de [esta pagina](https://dev.to/hugoliconv/lets-build-a-todo-app-using-vu
 
 
 - Instalar material-ui
-
+> vue add vuetify  
 
 ### Setup de ambiente al bajar
 

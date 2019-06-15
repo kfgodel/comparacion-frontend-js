@@ -1,18 +1,33 @@
 <template>
-  <div id="app">
-    <h1>{{title}}:</h1>
+  <v-app>
+    <v-layout >
+      <v-flex xs12 sm6 offset-sm3>
 
-    <input type="text" class="nes-input" placeholder="Add todo…" v-model="currentItem.text">
-    <button type="button" v-on:click="addTodo">Agregar</button>
+        <v-layout row>
+          <v-text-field label="Descripcion" placeholder="Add todo…" v-model="currentItem.text" ></v-text-field>
+          <v-btn color="info" v-on:click="addTodo">Agregar</v-btn>
+        </v-layout>
 
-    <ul>
-      <li v-for="todo in items" v-bind:key="todo.key" class="flex">
-        {{todo.text}}
-        <div class="space"></div>
-        <button class="nes-btn is-error padding" v-on:click="removeTodo(todo.key)">X</button>
-      </li>
-    </ul>
-  </div>
+        <v-flex xs12 >
+          <v-list>
+
+            <v-list-tile v-for="item in items" :key="item.key" v-on:click="removeTodo(item.key)" >
+              <v-list-tile-avatar>
+                <v-icon>inbox</v-icon>
+              </v-list-tile-avatar>
+
+              <v-list-tile-content>
+                <v-list-tile-title>{{ item.text }}</v-list-tile-title>
+              </v-list-tile-content>
+            </v-list-tile>
+          </v-list>
+        </v-flex>
+
+
+      </v-flex>
+    </v-layout>
+
+  </v-app>
 </template>
 
 <script>
@@ -42,15 +57,3 @@ export default {
   }
 }
 </script>
-
-<style ref="https://fonts.googleapis.com/css?family=Press+Start+2P" />
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
