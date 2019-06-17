@@ -1,18 +1,19 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<section class="todoapp">
 
-  <header class="header">
-    <h1>Todos</h1>
+<div fxLayout='column' fxFlex="100%">
 
-    <mat-form-field >
+  <h1>Todos</h1>
+
+  <div fxLayout="row" >
+
+    <mat-form-field fxFlex="80%" >
       <input matInput placeholder="Descripcion" [(ngModel)]="newTodo.title" >
     </mat-form-field>
 
     <button mat-raised-button (click)="addTodo()">Agregar</button>
-  </header>
+  </div>
 
-  <section class="main">
-
+  <div>
     <mat-selection-list>
       <mat-list-option *ngFor="let todo of todos" (click)="removeTodo(todo)">
         <mat-icon matListIcon>inbox</mat-icon>
@@ -20,8 +21,8 @@
       </mat-list-option>
     </mat-selection-list>
 
-  </section>
+  </div>
 
-</section>
+</div>
 
 <router-outlet></router-outlet>

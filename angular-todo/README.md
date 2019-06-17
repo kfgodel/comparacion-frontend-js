@@ -21,6 +21,7 @@ y modificandolo para que sea un todo list como el de react
 
 - Instalar material-ui  
 > npm install --save @angular/material @angular/cdk @angular/animations  
+> npm install @angular/flex-layout@latest --save  
   
   
 ### Setup de ambiente al bajar
