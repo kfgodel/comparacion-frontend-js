@@ -5,11 +5,11 @@ import ListItemIcon from '@material-ui/core/ListItemIcon'
 import ListItemText from '@material-ui/core/ListItemText'
 import InboxIcon from '@material-ui/icons/Inbox'
 
-class TodoItems extends Component {
+class TodoItemList extends Component {
 
-  singleTask(item) {
+  renderTodoItem(item) {
     return (
-      <ListItem button key={item.key} onClick={() => this.props.deleteItem(item.key)}>
+      <ListItem button key={item.key} onClick={() => this.props.deleteItem(item)}>
         <ListItemIcon>
           <InboxIcon />
         </ListItemIcon>
@@ -19,12 +19,11 @@ class TodoItems extends Component {
   }
 
   render() {
-    const todoEntries = this.props.entries
-    const listItems = todoEntries.map((item)=> this.singleTask(item))
+    const listItems = this.props.items.map((item)=> this.renderTodoItem(item));
     return (
       <List>{listItems}</List>
     )
   }
 }
 
-export default TodoItems
+export default TodoItemList
