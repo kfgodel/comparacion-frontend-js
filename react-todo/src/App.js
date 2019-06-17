@@ -31,7 +31,6 @@ class App extends Component {
       // Don't add empty tasks
       return;
     }
-    console.log(newItem)
     const items = [...this.state.items, newItem]
     this.setState({
       items: items,
