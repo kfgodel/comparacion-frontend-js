@@ -2,8 +2,10 @@ import React, {Component} from 'react'
 import TodoItemEditor from "./TodoItemEditor";
 import TodoItemList from "./TodoItemList";
 import Container from "@material-ui/core/Container";
+import AppContext from "./AppContext";
 
 class TodoList extends Component {
+  static contextType = AppContext;
 
   constructor(props) {
     super(props);
@@ -12,21 +14,26 @@ class TodoList extends Component {
     }
   }
 
+  componentDidMount() {
+    this.updateTodoList();
+  }
+
   addItem = (createdItem) => {
-    const items = [...this.state.items, createdItem];
-    this.setState({
-      items: items,
-    })
+    this.context.todoService.addNewItem(createdItem);
+    this.updateTodoList();
   };
 
-  deleteItem = (key) => {
-    const nonDeletedItems = this.state.items.filter(item => {
-      return item !== key
-    });
-    this.setState({
-      items: nonDeletedItems,
-    })
+  deleteItem = (deletedItem) => {
+    this.context.todoService.removeItem(deletedItem);
+    this.updateTodoList();
   };
+
+  updateTodoList() {
+    let allItems = this.context.todoService.findAllTodoItems();
+    this.setState({
+      items: allItems,
+    })
+  }
 
   render() {
     return (
