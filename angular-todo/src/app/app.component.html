@@ -3,18 +3,23 @@
 
   <header class="header">
     <h1>Todos</h1>
-    <input class="new-todo" placeholder="What needs to be done?" autofocus="" [(ngModel)]="newTodo.title" >
-    <button type="button" (click)="addTodo()">Agregar</button>
+
+    <mat-form-field >
+      <input matInput placeholder="Descripcion" [(ngModel)]="newTodo.title" >
+    </mat-form-field>
+
+    <button mat-raised-button (click)="addTodo()">Agregar</button>
   </header>
 
   <section class="main">
-    <ul class="todo-list">
-      <li *ngFor="let todo of todos" (click)="removeTodo(todo)" >
-        <div class="view">
-          <label>{{todo.title}}</label>
-        </div>
-      </li>
-    </ul>
+
+    <mat-selection-list>
+      <mat-list-option *ngFor="let todo of todos" (click)="removeTodo(todo)">
+        <mat-icon matListIcon>inbox</mat-icon>
+        <h3 matLine> {{todo.title}} </h3>
+      </mat-list-option>
+    </mat-selection-list>
+
   </section>
 
 </section>
