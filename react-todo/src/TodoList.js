@@ -19,20 +19,21 @@ class TodoList extends Component {
   }
 
   addItem = (createdItem) => {
-    this.context.todoService.addNewItem(createdItem);
-    this.updateTodoList();
+    this.context.todoService.addNewItem(createdItem).then(()=>{
+      this.updateTodoList();
+    });
   };
 
   deleteItem = (deletedItem) => {
-    this.context.todoService.removeItem(deletedItem);
-    this.updateTodoList();
+    this.context.todoService.removeItem(deletedItem).then(()=>{
+      this.updateTodoList();
+    });
   };
 
   updateTodoList() {
-    let allItems = this.context.todoService.findAllTodoItems();
-    this.setState({
-      items: allItems,
-    })
+    this.context.todoService.findAllTodoItems().then(items  => {
+      this.setState({ items })
+    });
   }
 
   render() {
