@@ -3,26 +3,9 @@
     <v-layout >
       <v-flex xs12 sm6 offset-sm3>
 
-        <v-layout row>
-          <v-text-field label="Descripcion" placeholder="Add todo…" v-model="currentItem.text" ></v-text-field>
-          <v-btn color="info" v-on:click="addTodo">Agregar</v-btn>
-        </v-layout>
+        <ItemEditor></ItemEditor>
 
-        <v-flex xs12 >
-          <v-list>
-
-            <v-list-tile v-for="item in todos" :key="item.key" v-on:click="removeTodo(item)" >
-              <v-list-tile-avatar>
-                <v-icon>inbox</v-icon>
-              </v-list-tile-avatar>
-
-              <v-list-tile-content>
-                <v-list-tile-title>{{ item.text }}</v-list-tile-title>
-              </v-list-tile-content>
-            </v-list-tile>
-          </v-list>
-        </v-flex>
-
+        <ItemList></ItemList>
 
       </v-flex>
     </v-layout>
@@ -32,29 +15,14 @@
 
 <script>
 
-export default {
+  import ItemEditor from "./components/ItemEditor";
+  import ItemList from "./components/ItemList";
+
+  export default {
   name: 'app',
   components: {
-  },
-  computed: {
-    todos() {
-      return this.$store.state.todos
-    }
-  },
-  data() {
-    return {
-      currentItem: {text: ''}
-    }
-  },
-  methods: {
-    addTodo() {
-      this.currentItem.key = Date.now();
-      this.$store.dispatch('addTodoAction', this.currentItem);
-      this.currentItem = {text: ''};
-    },
-    removeTodo(todoItem) {
-      this.$store.dispatch('removeTodoAction', todoItem);
-    }
+    ItemList,
+    ItemEditor
   }
 }
 </script>
