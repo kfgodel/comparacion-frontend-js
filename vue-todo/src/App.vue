@@ -11,7 +11,7 @@
         <v-flex xs12 >
           <v-list>
 
-            <v-list-tile v-for="item in items" :key="item.key" v-on:click="removeTodo(item.key)" >
+            <v-list-tile v-for="item in todos" :key="item.key" v-on:click="removeTodo(item)" >
               <v-list-tile-avatar>
                 <v-icon>inbox</v-icon>
               </v-list-tile-avatar>
@@ -35,24 +35,25 @@
 export default {
   name: 'app',
   components: {
-
   },
-
+  computed: {
+    todos() {
+      return this.$store.state.todos
+    }
+  },
   data() {
     return {
-      title: 'TODOS',
-      currentItem: {text: ''},
-      items: []
+      currentItem: {text: ''}
     }
   },
   methods: {
     addTodo() {
-      this.currentItem.key = Date.now()
-      this.items.push(this.currentItem)
-      this.currentItem = {text: ''}
+      this.currentItem.key = Date.now();
+      this.$store.dispatch('addTodoAction', this.currentItem);
+      this.currentItem = {text: ''};
     },
-    removeTodo(key) {
-      this.items = this.items.filter(todo => todo.key !== key)
+    removeTodo(todoItem) {
+      this.$store.dispatch('removeTodoAction', todoItem);
     }
   }
 }

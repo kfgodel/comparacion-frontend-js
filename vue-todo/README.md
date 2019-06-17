@@ -22,6 +22,9 @@ Tomado de [esta pagina](https://dev.to/hugoliconv/lets-build-a-todo-app-using-vu
 - Instalar material-ui
 > vue add vuetify  
 
+- Instalar vuex
+> npm install --save vuex
+
 ### Setup de ambiente al bajar
 
 - Bajar las dependencias necesarias
